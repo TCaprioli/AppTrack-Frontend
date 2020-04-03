@@ -1,0 +1,36 @@
+.logcon{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+    padding: 100px;
+    min-width: 200px; 
+    text-align: center; 
+}
+
+.logtitle{
+       
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+    margin-bottom: -170px;
+    padding: 100px;
+    min-width: 200px; 
+    text-align: center; 
+}
+
+.logtext{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:-60px;
+    margin-bottom: -170px;
+    min-width: 200px; 
+   
+}
+
+.logprompt{
+
+}

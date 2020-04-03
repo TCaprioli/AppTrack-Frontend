@@ -1,0 +1,23 @@
+.signcon{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+    padding: 100px;
+    min-width: 200px; 
+    text-align: center; 
+}
+
+.signtitle{
+       
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+    margin-bottom: -170px;
+    padding: 100px;
+    min-width: 200px; 
+    text-align: center; 
+}
+

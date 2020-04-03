@@ -1,0 +1,64 @@
+.appcon{
+    padding:80px;
+    display: 'flex'; 
+    justify-content: center;
+
+}
+
+.card-deck{
+    
+    flex-direction: 'row';
+    flex-wrap: wrap;
+    align-content: space-around;
+    
+    
+}
+
+.card{
+    
+    min-width: 250px;
+    max-width: 250px;
+    margin: 15px;
+}
+
+.search{
+    max-width:300px;
+    min-width: 300px;
+}
+
+.searchcon{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    padding: 50px;
+}
+
+.modal-btn{
+    width: 30px; 
+    height: 30px; 
+    padding: 2px 2px; 
+    border-radius: 15px; 
+    font-size: 24px; 
+    position: relative;
+    background-color: rgb(40, 203, 40);
+    display: flex;
+    left: -20px;
+    /* margin-left: 750px;
+    margin-top: -67px;
+    margin-bottom: 10px */
+}
+
+.btn-text{
+    position: relative;
+    top:-7px;
+    left:5px;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
