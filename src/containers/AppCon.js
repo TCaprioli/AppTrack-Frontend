@@ -2,7 +2,7 @@ import React from 'react';
 import AppCard from '../components/AppCard'
 import {connect} from 'react-redux'
 import AppSearch from '../components/AppSearch'
-import Modal from '../components/AppModal'
+import AppModal from '../components/AppModal'
 import {CardDeck} from 'react-bootstrap'
 
 
@@ -24,7 +24,7 @@ const AppCon=(props)=>  {
         <div className='appcon'>
             <div className='searchcon'>
             <AppSearch/>
-            <Modal/>
+            <AppModal/>
             </div>
            
             

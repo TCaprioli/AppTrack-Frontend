@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 
 import addFormInput from '../actions/addFormInput'
 
-class Modal extends React.Component {
+class AppModal extends React.Component {
   state={
     show:false,
     title:'',
@@ -80,4 +80,4 @@ class Modal extends React.Component {
     );
   }
 }
- export default connect(null,{addFormInput})(Modal);
+ export default connect(null,{addFormInput})(AppModal);

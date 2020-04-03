@@ -29,6 +29,31 @@ class SignCon extends React.Component {
     let {email, password} = this.state
         return (
         <div className='signcon'>
+            <Formik
+                initialValues={this.state.email, this.state.password}
+                validate={values => {
+                    const errors = {};
+                    if (!values.email) {
+                    errors.email = 'Required';
+                    } else if (
+                    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+                    ) {
+                    errors.email = 'Invalid email address';
+                    }
+                    return errors;
+                }}
+                onSubmit={this.handleSubmit}
+            >
+            {({
+                values,
+                errors,
+                touched,
+                handleChange,
+                handleBlur,
+                handleSubmit,
+                isSubmitting,
+                /* and other goodies */
+            }) => (
            <Form onSubmit={this.handleSubmit}>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
@@ -37,6 +62,7 @@ class SignCon extends React.Component {
                     <Form.Text className="text-muted">
                     We'll never share your email with anyone else.
                     </Form.Text>
+                    {errors.email && touched.email && errors.email}
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
@@ -47,8 +73,8 @@ class SignCon extends React.Component {
                 <Button variant="primary" type="submit">
                     Sign Up
                 </Button>
-             </Form>
-        
+             </Form>)}
+            </Formik>
         </div>
       );
     }
