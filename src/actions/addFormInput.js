@@ -2,7 +2,7 @@
 export default (payload)=>{
     return async (dispatch)=>{
         let token = localStorage.token
-        let resp = await fetch('http://localhost:3000/jobs',{
+        let resp = await fetch('http://localhost:3000/applications',{
             method:'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -12,9 +12,8 @@ export default (payload)=>{
             body: JSON.stringify(payload)
         })
          let data = await resp.json()
-         let job = {...data.job.job}
-         
-         dispatch(addData(job))
+        console.log(data.application)
+        dispatch(addData(data.application))
     }   
 }
 

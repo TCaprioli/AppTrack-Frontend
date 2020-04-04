@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 
 import addFormInput from '../actions/addFormInput'
 
-class Modal extends React.Component {
+class AppModal extends React.Component {
   state={
     show:false,
     title:'',
@@ -14,7 +14,8 @@ class Modal extends React.Component {
     payload=()=>({
       title:this.state.title,
       company:this.state.company,
-      description:this.state.description
+      description:this.state.description,
+      user_id:this.props.currentUser.user.id
     })
     handleSubmit=(event)=>{
       event.preventDefault()
@@ -80,4 +81,4 @@ class Modal extends React.Component {
     );
   }
 }
- export default connect(null,{addFormInput})(Modal);
+ export default connect(state=>({currentUser:state.loggedIn.currentUser}),{addFormInput})(AppModal);

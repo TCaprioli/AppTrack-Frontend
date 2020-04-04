@@ -2,29 +2,34 @@ import React from 'react';
 import AppCard from '../components/AppCard'
 import {connect} from 'react-redux'
 import AppSearch from '../components/AppSearch'
-import Modal from '../components/AppModal'
+import AppModal from '../components/AppModal'
 import {CardDeck} from 'react-bootstrap'
 
 
 
 const AppCon=(props)=>  {
-    const newArray=(array)=>array
-    let {cardArray} = props
-    const mapCards=()=>{
-        let newCardArray = cardArray.map(card => {
-            return <AppCard key={card.id} cardData={card}/>
-        })
+    
+    let {cardArray,input} = props
 
-        return newCardArray
-
+    let filteredCards = ()=>{
+        let array = cardArray.filter(card => card.title.toLowerCase().includes(input) || card.company.toLowerCase().includes(input))
+        return array
     }
     
+    const mapCards= ()=>{
+        let newArray = filteredCards().map(card => {
+            return <AppCard key={card.id} cardData={card}/>
+        })
+        return newArray
+    }
     
+    console.log(input)
+
         return (
         <div className='appcon'>
             <div className='searchcon'>
             <AppSearch/>
-            <Modal/>
+            <AppModal/>
             </div>
            
             
@@ -38,4 +43,4 @@ const AppCon=(props)=>  {
     
 }
 
-export default connect(state=>({cardArray:state.cardArray}))(AppCon);
+export default connect(state=>({cardArray:state.cardObjects.data, input:state.searchTerm.input}))(AppCon);

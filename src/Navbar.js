@@ -3,7 +3,7 @@ import './stylesheets/navbar.css'
 import {connect} from 'react-redux';
 import logoutUser from './actions/logoutUser'
 import { NavLink } from 'react-router-dom'
-import {Navbar, Container,NavDropdown,Button} from 'react-bootstrap'
+import {Navbar, Container,NavDropdown,Button,ListGroup} from 'react-bootstrap'
 
 const NavBar =(props)=>{
     let handleOnClick = (event) =>{
@@ -17,23 +17,26 @@ const NavBar =(props)=>{
            <Navbar className='navbar' fixed="top">
 
                 <NavDropdown title="Menu" id="nav-dropdown">
-                    <NavDropdown.Item>
-                    <NavLink
-                        to='/apps'
-                        exact
-                        >
-                            Applications
-                        </NavLink> 
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>
-                        <NavLink
-                        to='/signup'
-                        exact
-                        >
-                            signup
-                        </NavLink> 
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>Resumes</NavDropdown.Item>
+                   <ListGroup variant='flush' style={{textAlign:'center'}}>
+                        <ListGroup.Item action variant="light" >
+                            <NavLink
+                            to='/apps'
+                            exact
+                            style={{textDecoration:'none',color:'black'}}
+                            >
+                                Applications
+                            </NavLink>
+                        </ListGroup.Item>
+                        <ListGroup.Item action variant="light">
+                            <NavLink
+                            to='/signup'
+                            exact
+                            style={{textDecoration:'none',color:'black'}}
+                            >
+                                signup
+                            </NavLink> 
+                        </ListGroup.Item>
+                    </ListGroup>
                 </NavDropdown>
                 <Container className="mx-auto">
                     <h1><a className="title" href='/'>AppTrack</a></h1>
