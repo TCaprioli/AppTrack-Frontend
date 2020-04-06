@@ -23,7 +23,7 @@ const AppCon=(props)=>  {
         return newArray
     }
     
-    console.log(input)
+   
 
         return (
         <div className='appcon'>

@@ -20,7 +20,7 @@ const NavBar =(props)=>{
                    <ListGroup variant='flush' style={{textAlign:'center'}}>
                         <ListGroup.Item action variant="light" >
                             <NavLink
-                            to='/apps'
+                            to='/applications'
                             exact
                             style={{textDecoration:'none',color:'black'}}
                             >
@@ -39,7 +39,7 @@ const NavBar =(props)=>{
                     </ListGroup>
                 </NavDropdown>
                 <Container className="mx-auto">
-                    <h1><a className="title" href='/'>AppTrack</a></h1>
+                    <h1 style={{color:'white'}}><a className="title" href='/'>AppTrack</a></h1>
                 </Container>
                 {props.currentUser?
                 <Button variant="success" href='/' onClick={handleOnClick}>Logout</Button>

@@ -12,6 +12,7 @@ import NavBar from './Navbar'
 import Signup from './Signup';
 import Login from './Login'
 import Home from './Home'
+import AppShow from './AppShow'
 
 
 
@@ -26,9 +27,10 @@ ReactDOM.render(
       <div>
         <NavBar/>
         <Route exact path="/" component={Home}/>
-        <Route exact path ='/apps' component={App}/>
-        <Route exact path='/signup' component={Signup}/>
-        <Route exact path='/login' component={Login}/>
+        <Route exact path ='/applications' component={App}/>
+        <Route path='/signup' component={Signup}/>
+        <Route path='/login' component={Login}/>
+        <Route exact path='/applications/more-info' component={AppShow}/>
       </div>
     </Router>
   </Provider>,

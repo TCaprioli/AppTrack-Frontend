@@ -1,0 +1,11 @@
+.showcon{
+    position: relative;
+    top: 100px;
+    width: 400px
+}
+
+.backbtn{
+    position: relative;
+    top: 100px;
+    padding-left: 50px;
+}
