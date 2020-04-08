@@ -5,6 +5,9 @@ import loginFetch from '../actions/loginFetch'
 
 
 
+
+
+
 class LogCon extends React.Component {
     state={
         email:"",
@@ -15,7 +18,7 @@ class LogCon extends React.Component {
 
         event.preventDefault()
         this.props.loginFetch(this.state)
-
+        this.props.history.push('/')
     }
 
     handleInput=(event)=>{

@@ -29,11 +29,11 @@ const NavBar =(props)=>{
                         </ListGroup.Item>
                         <ListGroup.Item action variant="light">
                             <NavLink
-                            to='/signup'
+                            to='/resumes'
                             exact
                             style={{textDecoration:'none',color:'black'}}
                             >
-                                signup
+                                Resumes
                             </NavLink> 
                         </ListGroup.Item>
                     </ListGroup>

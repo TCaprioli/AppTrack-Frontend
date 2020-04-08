@@ -17,6 +17,8 @@ class AppShow extends React.Component{
             <div className='mx-auto showcon'>
                 <ShowCon/>
             </div>
+          
+            
             </>
         )
     }

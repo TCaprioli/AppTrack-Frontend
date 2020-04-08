@@ -9,6 +9,10 @@ import showCardData from '../actions/showCardData'
 
 const AppCard=(props)=>  {
 
+  //const time and appliedAt takes attribute 'created_at' from api and converts it to a more human friendly format
+  const time = new Date(props.cardData.created_at)
+  const appliedAt = `${time.getMonth()}/${time.getDate()}/${time.getFullYear()}`
+
   let handleDelete=()=>{
     props.removeCard(props.cardData.id)
   }
@@ -21,9 +25,11 @@ const AppCard=(props)=>  {
         return (
             <Card>
             <Card.Body>
-              
               <Card.Title>{props.cardData.title}</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">{props.cardData.company}</Card.Subtitle>
+              <hr/>
+              <p>Applied: {appliedAt}</p>
+              <hr/>
               <Button variant="primary" onClick={handleOnClick}>
                 <NavLink
                 to="/applications/more-info"
