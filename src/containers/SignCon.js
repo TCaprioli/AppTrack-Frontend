@@ -16,7 +16,7 @@ class SignCon extends React.Component {
 
         event.preventDefault()
         this.props.fetchUser(this.state)
-
+        this.props.history.push('/')
     }
 
     handleInput=(event)=>{

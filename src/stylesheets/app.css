@@ -59,3 +59,12 @@
     top:-7px;
     left:5px;
 }
+.btn-primary.title-btn{
+    position:relative;
+    background-color: gray;
+    border-color: gray;
+    height: 20px;
+    width: 20px;
+    top:-2px;
+    left: 2px;
+}

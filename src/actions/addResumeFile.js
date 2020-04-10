@@ -9,29 +9,25 @@
 export default (payload)=>{
     return async (dispatch)=>{
         let token = localStorage.token
-        let base = await toBase64(payload)
+        let base = await toBase64(payload.files)
         
         let resp = await fetch('http://localhost:3000/resumes',{
             method:'POST',
-            headers: {
+            headers: {'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
               },
-            body: JSON.stringify({document:{url:base}})
+            body: JSON.stringify({user_id:payload.id,document:base})
         })
          let data = await resp.json()
-         console.log(data)
-         
+        console.log(data)
         
-        // dispatch(addData(data.application))
+        dispatch(addData(data))
 
-        
-        // let resp = await fetch('http://localhost:3000/resumes',{
-        //     method:'GET',
-        //     headers: {
-        //         'Authorization': `Bearer ${token}`
-        //       },
-        // })
-        //  let data = await resp.json()
-        //  console.log(data,payload)
+
     }   
 }
+
+const addData=(payload)=>({
+    type:'ADD_RESUME',
+    payload
+})

@@ -6,10 +6,9 @@ import addResumeFile from '../actions/addResumeFile'
 
 
 
-class ShowForm extends React.Component {
+class ResumeForm extends React.Component {
   state={
-      user_id:this.props.user.id,
-      document:{}
+      files:{}
   }
     
     
@@ -17,8 +16,10 @@ class ShowForm extends React.Component {
 
     handleSubmit = (event)=>{
         let {files} = this.state
+        let id = this.props.id.user.id
         event.preventDefault()
-        this.props.addResumeFile(files)
+        this.props.addResumeFile({id,files})
+        console.log(this.state)
         
         
     }
@@ -36,7 +37,7 @@ class ShowForm extends React.Component {
     }
 
     render(){
-   
+        
         return (
         <div className='logcon'>
            <Form encType="multipart/form-data" name="myForm"onSubmit={this.handleSubmit}>
@@ -58,4 +59,4 @@ class ShowForm extends React.Component {
     }
 }
 
-export default connect(state=>({user: state.loggedIn.currentUser.user}),{addResumeFile})(ShowForm);
+export default connect(null,{addResumeFile})(ResumeForm);

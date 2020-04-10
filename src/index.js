@@ -13,6 +13,7 @@ import Login from './Login'
 import Home from './Home'
 import AppShow from './AppShow'
 import Resume from './Resume'
+import ResumeShow from './ResumeShow'
 
 const history = createBrowserHistory
 
@@ -31,7 +32,8 @@ ReactDOM.render(
         <Route exact path='/signup' component={Signup}/>
         <Route exact path='/login' component={Login}/>
         <Route exact path='/applications/more-info' component={AppShow}/>
-        <Route path='/resumes' component={Resume}/>
+        <Route exact path='/resumes' component={Resume}/>
+        <Route exact path ='/resumes/more-info' component={ResumeShow}/>
       </div>
     </Router>
   </Provider>,
