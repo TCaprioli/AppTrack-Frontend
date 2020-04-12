@@ -30,13 +30,14 @@ const AppCard=(props)=>  {
               <hr/>
               <p>Applied: {appliedAt}</p>
               <hr/>
-              <Button variant="primary" onClick={handleOnClick}>
                 <NavLink
                 to="/applications/more-info"
                 style={{textDecoration:'none', color:'white'}}>
+                <Button variant="primary" onClick={handleOnClick}>
                  More Info
+                </Button>
                 </NavLink>
-              </Button><br/>
+                <br/>
               <Button variant="primary" style={{position:'relative',top:'5px'}} onClick={handleDelete}>Delete</Button>
             </Card.Body>
             

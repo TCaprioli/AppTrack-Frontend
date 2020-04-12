@@ -18,24 +18,25 @@ const NavBar =(props)=>{
 
                 <NavDropdown title="Menu" id="nav-dropdown">
                    <ListGroup variant='flush' style={{textAlign:'center'}}>
-                        <ListGroup.Item action variant="light" >
-                            <NavLink
+                        <NavLink
                             to='/applications'
                             exact
-                            style={{textDecoration:'none',color:'black'}}
+                            style={{textDecoration:'none'}}
                             >
+                        <ListGroup.Item action variant="light" style={{color:'black'}}>
                                 Applications
-                            </NavLink>
                         </ListGroup.Item>
-                        <ListGroup.Item action variant="light">
+                            </NavLink>
+                        
                             <NavLink
                             to='/resumes'
                             exact
-                            style={{textDecoration:'none',color:'black'}}
+                            style={{textDecoration:'none'}}
                             >
+                            <ListGroup.Item action variant="light" style={{color:'black'}}>
                                 Resumes
+                             </ListGroup.Item>
                             </NavLink> 
-                        </ListGroup.Item>
                     </ListGroup>
                 </NavDropdown>
                 <Container className="mx-auto">
