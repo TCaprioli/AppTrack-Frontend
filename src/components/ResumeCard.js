@@ -37,7 +37,7 @@ class ResumeCard extends React.Component{
       clicked:false
     })
   }
-  handleKeyUp=(event)=>{
+  handleKeyPress=(event)=>{
     let {key,target} = event
     if(key === 'Enter'){
       event.preventDefault()
@@ -71,7 +71,7 @@ class ResumeCard extends React.Component{
             </Card.Title>
             :
             <Card.Title>
-              <form onKeyPress={this.handleKeyUp}>
+              <form onKeyPress={this.handleKeyPress}>
               <input type='text' placeholder='Edit Name' />
               </form>
             <Button size='sm' className='btn-primary title-btn' onClick={this.handleUpdate}>

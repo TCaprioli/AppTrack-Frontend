@@ -28,7 +28,7 @@ const AppCard=(props)=>  {
               <Card.Title>{props.cardData.title}</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">{props.cardData.company}</Card.Subtitle>
               <hr/>
-              <p>Applied: {appliedAt}</p>
+              <p>Applied: {props.cardData.applied === null? appliedAt:props.cardData.applied}</p>
               <hr/>
                 <NavLink
                 to="/applications/more-info"
