@@ -81,13 +81,14 @@ class ResumeCard extends React.Component{
           
           }
               <Card.Subtitle className="mb-2 text-muted">{null}</Card.Subtitle>
-              <Button variant="primary" onClick={this.handleOnClick}>
                 <NavLink
                 to="/resumes/more-info"
                 style={{textDecoration:'none', color:'white'}}>
+                <Button variant="primary" onClick={this.handleOnClick}>
                  More Info
+                </Button>
                 </NavLink>
-              </Button><br/>
+              <br/>
               <Button variant="primary" style={{position:'relative',top:'5px'}} onClick={this.handleDelete}>Delete</Button>
             </Card.Body>
             

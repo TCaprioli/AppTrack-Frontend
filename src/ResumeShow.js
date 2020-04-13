@@ -42,6 +42,7 @@ class ResumeShow extends React.Component{
             </div>
              
             <div className='mx-auto showcon' >
+                <h2>{this.props.showResume.name}</h2>
                 <iframe style={{height:'500px',width:'400px'}} title={this.props.showResume.id} src={this.state.fileURL}> </iframe>
             </div>
 

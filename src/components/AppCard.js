@@ -11,7 +11,9 @@ const AppCard=(props)=>  {
 
   //const time and appliedAt takes attribute 'created_at' from api and converts it to a more human friendly format
   const time = new Date(props.cardData.created_at)
-  const appliedAt = `${time.getMonth()}/${time.getDate()}/${time.getFullYear()}`
+  const month =()=>time.getMonth() + 1 <= 9? `0${time.getMonth() +1}`:time.getMonth() +1;
+  const day =()=>time.getDate()<= 9? `0${time.getDate()}`:time.getDate();
+  const appliedAt = `${time.getFullYear()}-${month()}-${day()}`
 
   let handleDelete=()=>{
     props.removeCard(props.cardData.id)

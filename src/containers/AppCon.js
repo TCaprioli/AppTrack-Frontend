@@ -27,6 +27,7 @@ const AppCon=(props)=>  {
 
         return (
         <div className='appcon'>
+            <h2>Applications</h2>
             <div className='searchcon'>
             <AppSearch/>
             <AppModal/>

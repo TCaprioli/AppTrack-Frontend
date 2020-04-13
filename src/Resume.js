@@ -20,7 +20,7 @@ class Resume extends Component {
   render(){
    
         return (
-        <div >
+        <div className='App'>
         
  
                 <ResumeForm id={this.props.currentUser}/> 

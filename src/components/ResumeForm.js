@@ -39,7 +39,11 @@ class ResumeForm extends React.Component {
     render(){
         
         return (
-        <div className='logcon'>
+        <>
+        <div className='appcon' style={{paddingBottom:'-100px'}}>
+        <h2>Resumes</h2>
+        </div>
+        <div className='logcon' style={{marginTop:'-150px'}}>
            <Form encType="multipart/form-data" name="myForm"onSubmit={this.handleSubmit}>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Add Resume</Form.Label>
@@ -55,6 +59,7 @@ class ResumeForm extends React.Component {
              </Form>
         
         </div>
+        </>
       );
     }
 }
