@@ -52,7 +52,7 @@ const NavBar =(props)=>{
                 <Container className="mx-auto">
                     <h1 style={{color:'white'}}><a className="title" href='/'>AppTrack</a></h1>
                 </Container>
-                {props.currentUser?
+                {props.currentUser.user?
                 <Button variant="success" href='/' onClick={handleOnClick}>Logout</Button>
                 :
                 <Button variant="success" href='/login'>Login</Button>}
