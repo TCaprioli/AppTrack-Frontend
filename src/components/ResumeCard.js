@@ -42,6 +42,7 @@ class ResumeCard extends React.Component{
     if(key === 'Enter'){
       event.preventDefault()
       this.props.updateResumeName(this.updateObj(target.value))
+      console.log(target.value)
       this.setState({
         clicked:false
       })

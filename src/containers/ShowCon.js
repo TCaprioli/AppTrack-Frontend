@@ -93,9 +93,30 @@ class ShowCon extends React.Component{
     mapResapps=()=>{
         let {resappArray} = this.state
         let updatedArray = resappArray.map(resapp =>{
-        return <div key={resapp.resume_id}>{resapp.resume_name}</div>
+        return <div key={resapp.resume_id}>{resapp.resume_name} <button onClick={this.handleDelete} id={`${resapp.id}`} style={{borderRadius:'15px',outline:'none'}}>x</button></div>
         })
         return updatedArray
+    }
+
+    handleDelete=(event)=>{
+        let token = localStorage.token
+        let id= event.target.id
+        let updatedArray = this.state.resappArray.filter(resapp => resapp.id != id)
+        console.log(updatedArray)
+        console.log(this.state.resappArray)
+        console.log(id)
+        this.setState({
+            resappArray:updatedArray
+        })
+        fetch(`http://localhost:3000/resapps/${id}`,{
+            method:'DELETE',
+            headers: {'Content-Type': 'application/json',
+            Accept: 'application/json',
+            'Authorization': `Bearer ${token}`
+              }
+            })
+       
+        
     }
 
     handleOnSubmit=(event)=>{
@@ -117,7 +138,7 @@ class ShowCon extends React.Component{
 
         //deconstructions
         let {title,company,description,applied} = this.props.showData
-        let {clicked,resumeArray,resappArray} = this.state
+        let {clicked,resappArray} = this.state
 
         return(
             <div>
@@ -150,6 +171,7 @@ class ShowCon extends React.Component{
                 <hr/>
                 Resume(s) used:
                 <Form.Control as='select' name='resapp' onChange={this.handleOnChange} onFocus={this.handleOnChange}>
+                <option value=''>Select Resume</option>
                 {this.mapOptions()}
                 </Form.Control>
                 <hr/>

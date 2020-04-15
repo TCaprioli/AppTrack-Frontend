@@ -8,7 +8,7 @@ const resumeResReducer=(state=initialState,action)=>{
         case 'FETCH_RESUME':
             return {...state, resumes:payload }
         case 'ADD_RESUME':
-            return {...state, resumes:[...state.resumes, payload]}
+            return {...state, resumes:[...state.resumes, payload.resume]}
         case 'UPDATE_RESUME':
             return {...state,resumes:[...state.resumes.map(resume =>{
                 if(resume.id === payload.id){

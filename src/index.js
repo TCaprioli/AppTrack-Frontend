@@ -14,6 +14,7 @@ import Home from './Home'
 import AppShow from './AppShow'
 import Resume from './Resume'
 import ResumeShow from './ResumeShow'
+import Folder from './Folder'
 
 const history = createBrowserHistory
 
@@ -34,6 +35,7 @@ ReactDOM.render(
         <Route exact path='/applications/more-info' component={AppShow}/>
         <Route exact path='/resumes' component={Resume}/>
         <Route exact path ='/resumes/more-info' component={ResumeShow}/>
+        <Route exact path='/folders' component={Folder}/>
       </div>
     </Router>
   </Provider>,

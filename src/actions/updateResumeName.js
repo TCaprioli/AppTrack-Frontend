@@ -14,7 +14,7 @@ export default (payload)=>{
          let data = await resp.json()
         console.log({data})
         
-        dispatch(updateData(data))
+        dispatch(updateData(data.resume))
 
 
     }   

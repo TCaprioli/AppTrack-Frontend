@@ -27,6 +27,16 @@ const NavBar =(props)=>{
                                 Applications
                         </ListGroup.Item>
                             </NavLink>
+
+                        <NavLink
+                            to='/folders'
+                            exact
+                            style={{textDecoration:'none'}}
+                            >
+                        <ListGroup.Item action variant="light" style={{color:'black'}}>
+                                Folders
+                        </ListGroup.Item>
+                        </NavLink>
                         
                             <NavLink
                             to='/resumes'
