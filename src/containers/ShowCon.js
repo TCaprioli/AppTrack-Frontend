@@ -81,7 +81,7 @@ class ShowCon extends React.Component{
             headers: {'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
               },
-            body: JSON.stringify({resume_id:Number.parseInt(this.state.resapp,10), application_id:this.props.showData.id})
+            body: JSON.stringify({resume_id:Number(this.state.resapp), application_id:this.props.showData.id})
         })
         let data = await resp.json()
         let newJoiner = data.resapp.resume
@@ -100,8 +100,8 @@ class ShowCon extends React.Component{
 
     handleDelete=(event)=>{
         let token = localStorage.token
-        let id= event.target.id
-        let updatedArray = this.state.resappArray.filter(resapp => resapp.id != id)
+        let id= Number(event.target.id)
+        let updatedArray = this.state.resappArray.filter(resapp => resapp.id !== id)
         console.log(updatedArray)
         console.log(this.state.resappArray)
         console.log(id)

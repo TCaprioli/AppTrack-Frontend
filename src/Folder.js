@@ -3,22 +3,21 @@ import {connect} from 'react-redux'
 import profileFetch from './actions/profileFetch'
 import FolderModal from './components/folderModal'
 import FolderCon from './containers/FolderCon'
+import fetchFolders from './actions/fetchFolders'
+
 import './stylesheets/folders.css'
 
 class Folder extends React.Component{
-    state={
-        folders: this.props.currentUser.folders,
-        applications: this.props.currentUser.applications
-    }
+ 
     componentDidMount(){
         this.props.profileFetch()
-        // this.props.fetchJobData()
+        this.props.fetchFolders()
     }
 
     mapfolders=()=>{
-        let {folders} = this.state
-        let updatedArray = folders.map(folder => {
-            return <FolderCon/>
+        let {folderArray} = this.props
+        let updatedArray = folderArray.map(folder => {
+            return <FolderCon key={folder.id} folderData={folder} applications={this.props.currentUser.applications}/>
         })
 
         return updatedArray
@@ -37,4 +36,4 @@ class Folder extends React.Component{
     }
 }
 
-export default connect(state=>({currentUser: state.loggedIn.currentUser.user}),{profileFetch})(Folder)
+export default connect(state=>({currentUser: state.loggedIn.currentUser.user, folderArray:state.folderObjects.folders}),{profileFetch,fetchFolders})(Folder)

@@ -1,32 +1,51 @@
 import React from 'react';
-import ResumeCard from '../components/ResumeCard'
+import AppCard from '../components/AppCard'
 import {connect} from 'react-redux'
-import {CardDeck} from 'react-bootstrap'
-import TouchCarousel from 'react-touch-carousel'
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext,Dot } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
+import {Button} from 'react-bootstrap'
+import FiModal from '../components/Fimodal'
 
 
 
 
 const FolderCon=(props)=>  {
+ console.log(props.folderData)
+  const mapSlides=()=>{
+    let updatedArray= props.folderData.folderItems.map((fi,index) =>{
+    return <Slide key={fi.id} index={index}><AppCard cardData={fi.application}/></Slide>
+    })
     
-    
-  
-  
-    
-   
+    return updatedArray
+  }
 
         return (
         <div style={{textAlign:'center'}}>
         <hr/>
-           Folder Name
-           <TouchCarousel></TouchCarousel>
-            
-            
+           <h2>{props.folderData.name} <FiModal folderData={props.folderData} appArray={props.applications}/></h2> 
+           <CarouselProvider
+        naturalSlideWidth={100}
+        naturalSlideHeight={100}
+        totalSlides={mapSlides().length}
+        visibleSlides={3}
+      >
+        <Slider>
+          {mapSlides()}
+        </Slider>
+       
+        <ButtonBack>Back</ButtonBack>
+        <ButtonNext>Next</ButtonNext>
+      </CarouselProvider>
+           
+ 
             
         <hr/>
         </div>
       );
     
 }
+
+
+
 
 export default connect()(FolderCon);

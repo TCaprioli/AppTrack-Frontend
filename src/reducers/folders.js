@@ -1,14 +1,28 @@
+import { isCompositeComponent } from "react-dom/test-utils"
+
 const initialState={
-    folders:[]
+    folders:[{id:undefined,name:undefined,folderItems:[]}]
 }
 
-const folderResReducer=(state=initialState,action)=>{
+
+
+const folderReducer=(state=initialState,action)=>{
     let {type,payload,id} = action
     switch(type){
         case 'FETCH_FOLDER':
-            return {...state, folders:payload }
+            return {...state, folders:[...payload] }
         case 'ADD_FOLDER':
-            return {...state, folders:[...state.folders, payload.folder]}
+            return {...state, folders:[...state.folders, payload]}
+        case 'ADD_ITEM':
+            return {...state, folders:[...state.folders.map(folder =>{
+                if(folder.id === payload[0].folder.id){
+                    return {...folder,folderItems:[...payload]}
+                }
+                else{
+                    return {...folder}
+                }
+            })
+        ]}
         case 'UPDATE_FOLDER':
             return {...state,folders:[...state.folders.map(folder =>{
                 if(folder.id === payload.id){
@@ -25,4 +39,18 @@ const folderResReducer=(state=initialState,action)=>{
     }
 }
 
-export default folderResReducer
+const folderItemMap=(folderItem, folder, payload)=>{
+    folderItem.map(foldItem =>{
+        if(payload.folder_id === folder.id){
+            return {...folder}
+            
+        }
+        
+            
+            
+    })//end of map
+}
+
+
+
+export default folderReducer

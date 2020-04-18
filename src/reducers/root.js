@@ -5,6 +5,7 @@ import searchReducer from './search'
 import showReducer from './showCard'
 import resumeReducer from './resume'
 import showResReducer from './showResume'
+import folderReducer from './folders'
 
 
 
@@ -14,6 +15,7 @@ export default combineReducers({
   searchTerm:searchReducer,
   showCard:showReducer,
   resumeData:resumeReducer,
-  showResume:showResReducer
+  showResume:showResReducer,
+  folderObjects:folderReducer
 
 });
