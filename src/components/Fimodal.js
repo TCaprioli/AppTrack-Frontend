@@ -1,7 +1,7 @@
 import React from 'react';
 import {Modal,Button,Form} from 'react-bootstrap'
 import {connect} from 'react-redux'
-
+import removeFolder from '../actions/removeFolder'
 import addFolderItem from '../actions/addFolderItem'
 
 class FiModal extends React.Component {
@@ -37,7 +37,8 @@ class FiModal extends React.Component {
         return updatedArray
     }
     handleDelete=()=>{
-
+      this.props.removeFolder(this.props.folderData.id)
+      // console.log(this.props.folderData.id)
     }
   
     handleClose = () => {
@@ -89,4 +90,4 @@ class FiModal extends React.Component {
     );
   }
 }
- export default connect(state=>({currentUser:state.loggedIn.currentUser}),{addFolderItem})(FiModal);
+ export default connect(state=>({currentUser:state.loggedIn.currentUser}),{addFolderItem,removeFolder})(FiModal);

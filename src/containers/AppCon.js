@@ -31,7 +31,7 @@ const AppCon=(props)=>  {
             <div className='searchcon'>
             <AppSearch/>
             <AppModal/>
-            </div>
+        </div>
            
             
             

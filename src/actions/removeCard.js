@@ -18,3 +18,4 @@ const remove =(id)=>({
     type:'REMOVE_CARD',
     id
 })
+

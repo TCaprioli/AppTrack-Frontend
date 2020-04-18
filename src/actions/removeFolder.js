@@ -1,7 +1,7 @@
 export default (id)=>{
     return (dispatch)=>{
         let token = localStorage.token
-        fetch(`http://localhost:3000/resumes/${id}`,{
+        fetch(`http://localhost:3000/folders/${id}`,{
             method:'DELETE',
             headers: {
                 'Content-Type': 'application/json', 
@@ -15,6 +15,6 @@ export default (id)=>{
 }
 
 const remove =(id)=>({
-    type:'REMOVE_RESUME',
+    type:'REMOVE_FOLDER',
     id
 })
