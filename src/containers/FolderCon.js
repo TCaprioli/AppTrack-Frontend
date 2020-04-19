@@ -1,16 +1,15 @@
 import React from 'react';
 import AppCard from '../components/AppCard'
 import {connect} from 'react-redux'
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext,Dot } from 'pure-react-carousel';
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext} from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import {Button} from 'react-bootstrap'
 import FiModal from '../components/Fimodal'
 
 
 
 
 const FolderCon=(props)=>  {
- console.log(props.folderData)
+
   const mapSlides=()=>{
     let updatedArray= props.folderData.folderItems.map((fi,index) =>{
     return <Slide key={fi.id} index={index}><AppCard cardData={fi.application}/></Slide>

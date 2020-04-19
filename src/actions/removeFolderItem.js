@@ -1,7 +1,7 @@
 export default (id)=>{
     return async (dispatch)=>{
         let token = localStorage.token
-        let resp = await fetch(`http://localhost:3000/applications/${id}`,{
+        let resp = await fetch(`http://localhost:3000/folderItems/${id}`,{
             method:'DELETE',
             headers: {
                 'Content-Type': 'application/json', 
@@ -11,16 +11,11 @@ export default (id)=>{
               }
         })
         let data = await resp.json()
-        console.log(data.applications)
-        dispatch(remove(id))  
-        dispatch(itemRemove(data.applications))
+        console.log(data)
+         
+        // dispatch(itemRemove(data.applications))
     }
 }
-
-const remove =(id)=>({
-    type:'REMOVE_CARD',
-    id
-})
 
 const itemRemove =(payload)=>({
     type: 'REMOVE_ITEM',

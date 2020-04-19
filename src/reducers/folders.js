@@ -1,4 +1,3 @@
-import { isCompositeComponent } from "react-dom/test-utils"
 
 const initialState={
     folders:[{id:undefined,name:undefined,folderItems:[]}]
@@ -40,19 +39,6 @@ const folderReducer=(state=initialState,action)=>{
             return state
     }
 }
-
-const folderItemMap=(folderItem, folder, payload)=>{
-    folderItem.map(foldItem =>{
-        if(payload.folder_id === folder.id){
-            return {...folder}
-            
-        }
-        
-            
-            
-    })//end of map
-}
-
 
 
 export default folderReducer

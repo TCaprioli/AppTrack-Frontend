@@ -7,7 +7,8 @@ import addFolderItem from '../actions/addFolderItem'
 class FiModal extends React.Component {
   state={
     show:false,
-    application:''
+    application:'',
+    appArray:this.props.appArray
   }
     payload=()=>({
       application_id:Number(this.state.application),
@@ -16,21 +17,23 @@ class FiModal extends React.Component {
 
     handleSubmit=(event)=>{
       event.preventDefault()
+      if(this.state.application !== ''){
       this.props.addFolderItem(this.payload())
       this.setState({
         application:''
       })
+      }
     }
 
     handleOnChange =(event)=>{
-        console.log(event.target.value)
+        // console.log(event.target.value)
       this.setState({
         application:event.target.value
       })
     }
 
     mapApplications=()=>{
-        let updatedArray = this.props.appArray.map(app => {
+        let updatedArray = this.state.appArray.map(app => {
         return <option key={app.id} value={app.id}>{`${app.title} | ${app.company}`}</option>
         })
 
@@ -38,7 +41,6 @@ class FiModal extends React.Component {
     }
     handleDelete=()=>{
       this.props.removeFolder(this.props.folderData.id)
-      // console.log(this.props.folderData.id)
     }
   
     handleClose = () => {
@@ -47,13 +49,16 @@ class FiModal extends React.Component {
       })
     }
 
+    handleAppRemove=()=>{
+
+    }
+
     handleShow = () => {
       this.setState({
         show:true
       })
     };
     render(){
-        // console.dir(this.state.application)
     return (
       <>
         <Button size='sm'className='addFI' onClick={this.handleShow}>
@@ -78,7 +83,10 @@ class FiModal extends React.Component {
                     <Button type="submit" variant="primary" >
                       Save Changes
                     </Button>
-                    <Button variant='danger' style={{position:'relative', left:'5px'}} onClick={this.handleDelete}>
+                    <Button variant='secondary' style={{position:'relative', left:'5px'}} onClick={this.handleAppRemove}>
+                      Remove Application
+                    </Button>
+                    <Button variant='danger' style={{position:'relative', left:'10px'}} onClick={this.handleDelete}>
                       Delete Folder
                     </Button>
 

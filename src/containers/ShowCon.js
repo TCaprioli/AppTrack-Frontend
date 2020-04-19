@@ -138,7 +138,7 @@ class ShowCon extends React.Component{
 
         //deconstructions
         let {title,company,description,applied} = this.props.showData
-        let {clicked,resappArray} = this.state
+        let {clicked} = this.state
 
         return(
             <div>

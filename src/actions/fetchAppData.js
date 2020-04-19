@@ -12,7 +12,7 @@ export default ()=>{
             
         })
          let data = await resp.json()
-         console.log(data.user.user.applications)
+        //  console.log(data)
          dispatch(fetchData(data.user.user.applications))
     }   
 }

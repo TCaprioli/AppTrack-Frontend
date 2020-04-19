@@ -12,7 +12,7 @@ export default (payload)=>{
             body: JSON.stringify(payload)
         })
          let data = await resp.json()
-        // console.log(data.folder_items[0])
+        console.log(data)
         dispatch(addData(data.folder_items))
     }   
 }

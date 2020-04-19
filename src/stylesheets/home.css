@@ -30,3 +30,19 @@
     justify-content: center;
     text-align: center;  
 }
+
+.dash-quote{
+    font-style: italic;
+}
+
+.countcon{
+    border-style: double;
+}
+
+.dash-main{
+    background-image: url('../background2.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 50px;
+}
+
