@@ -3,6 +3,7 @@ import {Modal,Button,Form} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import removeFolder from '../actions/removeFolder'
 import addFolderItem from '../actions/addFolderItem'
+import removeFolderItem from '../actions/removeFolderItem'
 
 class FiModal extends React.Component {
   state={
@@ -19,14 +20,11 @@ class FiModal extends React.Component {
       event.preventDefault()
       if(this.state.application !== ''){
       this.props.addFolderItem(this.payload())
-      this.setState({
-        application:''
-      })
       }
     }
 
     handleOnChange =(event)=>{
-        // console.log(event.target.value)
+        console.log(event.target.value)
       this.setState({
         application:event.target.value
       })
@@ -49,8 +47,22 @@ class FiModal extends React.Component {
       })
     }
 
-    handleAppRemove=()=>{
-
+    handleAppRemove=(event)=>{
+      event.persist()
+      let {folderData} = this.props
+      console.log(this.state.application, this.props.folderData.id )
+      console.log(this.props.folderData.folderItems)
+      let folderItem = folderData.folderItems.find(folderI =>{
+        if(folderI.application.id === Number(this.state.application)){
+          return folderI.id
+        }
+      })
+      // console.log(folderItem.id)
+      if(this.props.folderData.folderItems.length !== 0){
+        console.log(true)
+        this.props.removeFolderItem(folderItem.id)
+      }
+      
     }
 
     handleShow = () => {
@@ -74,7 +86,7 @@ class FiModal extends React.Component {
             <Form onSubmit={this.handleSubmit}>
                 <Form.Group >
                     <Form.Control as="select" name="application"  
-                     onChange={this.handleOnChange}>
+                     onChange={this.handleOnChange} onFocus={this.handleOnChange}>
                      <option>Select Application</option>
                      {this.mapApplications()}
                     </Form.Control>
@@ -98,4 +110,4 @@ class FiModal extends React.Component {
     );
   }
 }
- export default connect(state=>({currentUser:state.loggedIn.currentUser}),{addFolderItem,removeFolder})(FiModal);
+ export default connect(state=>({currentUser:state.loggedIn.currentUser}),{addFolderItem,removeFolder,removeFolderItem})(FiModal);

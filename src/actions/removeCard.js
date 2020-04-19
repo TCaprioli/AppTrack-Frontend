@@ -23,6 +23,6 @@ const remove =(id)=>({
 })
 
 const itemRemove =(payload)=>({
-    type: 'REMOVE_ITEM',
+    type: 'DELETE_APP',
     payload
 })

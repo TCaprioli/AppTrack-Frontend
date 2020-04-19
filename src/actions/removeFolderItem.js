@@ -1,7 +1,7 @@
 export default (id)=>{
     return async (dispatch)=>{
         let token = localStorage.token
-        let resp = await fetch(`http://localhost:3000/folderItems/${id}`,{
+        let resp = await fetch(`http://localhost:3000/folder_items/${id}`,{
             method:'DELETE',
             headers: {
                 'Content-Type': 'application/json', 
@@ -13,7 +13,7 @@ export default (id)=>{
         let data = await resp.json()
         console.log(data)
          
-        // dispatch(itemRemove(data.applications))
+        dispatch(itemRemove(data.folder_items))
     }
 }
 

@@ -33,8 +33,21 @@ const folderReducer=(state=initialState,action)=>{
             })]}
         case 'REMOVE_FOLDER':
             return {...state, folders:[...state.folders.filter(folder => folder.id !== id)]}
-        case 'REMOVE_ITEM':
+        case 'DELETE_APP':
             return {...state, folders:[...payload]}
+        case 'REMOVE_ITEM':
+            return {...state, folders:[...state.folders.map(folder =>{
+                if(payload.length === 0){
+                    return {...folder, folderItems:[...payload]}
+                }
+                else if(folder.id === payload[0].folder.id){
+                    return {...folder,folderItems:[...payload]}
+                }
+                else{
+                    return {...folder}
+                }
+            })
+        ]}
         default:
             return state
     }
