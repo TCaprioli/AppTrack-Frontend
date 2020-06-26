@@ -21,7 +21,7 @@ class DashCon extends React.Component{
             headers:{accept: 'application/json'}
         })
         let data = await resp.json()
-        console.log(data.contents)
+        console.log(data)
         
         this.setState({
             quote:data.contents.quotes[0].quote,

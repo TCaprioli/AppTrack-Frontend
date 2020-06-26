@@ -7,13 +7,16 @@ import {Navbar, Container,NavDropdown,Button,ListGroup} from 'react-bootstrap'
 
 const NavBar =(props)=>{
     let handleOnClick = (event) =>{
-        
-        localStorage.removeItem("token")
+        event.preventDefault()
         props.logoutUser()
+        localStorage.removeItem("token")
+        
+        
     }
 
     return(
         <div>
+            {console.log(props)}
            <Navbar className='navbar' fixed="top">
 
                 <NavDropdown title="Menu" id="nav-dropdown">
@@ -50,10 +53,18 @@ const NavBar =(props)=>{
                     </ListGroup>
                 </NavDropdown>
                 <Container className="mx-auto">
-                    <h1 style={{color:'white'}}><a className="title" href='/'>AppTrack</a></h1>
+                    <h1 style={{color:'white'}}><NavLink className="title" to='/' exact>AppTrack</NavLink></h1>
                 </Container>
                 {props.currentUser.user?
-                <Button variant="success" href='/' onClick={handleOnClick}>Logout</Button>
+                <Button variant="success" onClick={handleOnClick}>
+                    <NavLink
+                        to='/'
+                        exact
+                        style={{textDecoration:'none'}}
+                        >
+                        Logout
+                    </NavLink>
+                </Button>
                 :
                 <Button variant="success" href='/login'>Login</Button>}
             </Navbar>

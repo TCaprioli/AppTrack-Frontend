@@ -27,7 +27,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <div>
-        <NavBar/>
+        <NavBar history={history}/>
         <Route exact path="/" component={Home}/>
         <Route exact path ='/applications' component={App}/>
         <Route exact path='/signup' component={Signup}/>

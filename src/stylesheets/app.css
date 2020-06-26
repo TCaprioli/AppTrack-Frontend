@@ -1,17 +1,18 @@
 .appcon{
-    padding:80px;
-    display: 'flex'; 
+    padding: 80px 50px 80px 50px;
+    
     justify-content: center;
     text-align: center;
+ 
 
 }
 
 .card-deck{
     
-    flex-direction: 'row';
+    flex-direction: row;
     flex-wrap: wrap;
     align-content: space-around;
-    
+   
     
 }
 
@@ -40,16 +41,18 @@
     padding: 50px;
 }
 
+.searchbar{
+    padding-right: 20px;
+}
+
 .modal-btn{
     width: 30px; 
     height: 30px; 
-    padding: 2px 2px; 
     border-radius: 15px; 
     font-size: 24px; 
     position: relative;
     background-color: rgb(40, 203, 40);
     display: flex;
-    left: -20px;
     /* margin-left: 750px;
     margin-top: -67px;
     margin-bottom: 10px */
@@ -57,8 +60,8 @@
 
 .btn-text{
     position: relative;
-    top:-7px;
-    left:5px;
+    top:-10.5px;
+    left:-4.5px;
 }
 .btn-primary.title-btn{
     position:relative;
@@ -68,4 +71,9 @@
     width: 20px;
     top:-2px;
     left: 2px;
+}
+
+a, a.active{
+    text-decoration: none !important;
+    color:white !important;
 }

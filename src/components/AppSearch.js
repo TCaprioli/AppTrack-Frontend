@@ -18,7 +18,7 @@ class AppSearch extends React.Component{
 
     render(){
         return (
-            <div className='searchcon'>
+            <div className='searchbar'>
             <InputGroup size="sm"className="search">
                 <InputGroup.Prepend>
                 <InputGroup.Text id="basic-addon1">{<IoIosSearch/>}</InputGroup.Text>
@@ -31,6 +31,8 @@ class AppSearch extends React.Component{
                 onChange={this.handleOnChange}
                 />
             </InputGroup>
+
+
             </div>
             
        
