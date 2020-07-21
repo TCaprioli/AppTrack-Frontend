@@ -15,7 +15,7 @@ class Login extends Component {
         return (
         <div >
         <h1 className='logtitle'>Login</h1>
-        <LogCon/> 
+        <LogCon history={this.props.history}/> 
         <p className='logtext'>
         Don't have an account? Sign up <NavLink style={{position:"relative", left:"4px"}} to="/signup">here</NavLink>
         </p>

@@ -3,7 +3,7 @@ import AppCon from './containers/AppCon'
 
 import {connect} from 'react-redux';
 import profileFetch from './actions/profileFetch'
-import fetchJobData from './actions/fetchJobData'
+import fetchAppData from './actions/fetchAppData'
 import './stylesheets/app.css'
 
 
@@ -11,18 +11,17 @@ import './stylesheets/app.css'
 class App extends Component {
   componentDidMount(){
     this.props.profileFetch()
-    this.props.fetchJobData()
+    this.props.fetchAppData()
 }
   render(){
+    
         return (
         <div className="App">
-          
-            <AppCon/>
+          <AppCon/>
          
-        
         </div>
       );
     }
 }
 
-export default connect(null,{profileFetch, fetchJobData})(App);
+export default connect(state=>({currentUser:state.loggedIn.currentUser}),{profileFetch, fetchAppData})(App);

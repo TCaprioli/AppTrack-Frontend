@@ -8,24 +8,34 @@ import {CardDeck} from 'react-bootstrap'
 
 
 const AppCon=(props)=>  {
-    const newArray=(array)=>array
-    let {cardArray} = props
-    const mapCards=()=>{
-        let newCardArray = cardArray.map(card => {
-            return <AppCard key={card.id} cardData={card}/>
-        })
+    
+    let {cardArray,input} = props
 
-        return newCardArray
-
+    let filteredCards = ()=>{
+        let array = cardArray.filter(card => card.title.toLowerCase().includes(input) || card.company.toLowerCase().includes(input))
+        return array
     }
     
+    const mapCards= ()=>{
+        let newArray = filteredCards().map(card => {
+            return <AppCard key={card.id} cardData={card}/>
+        })
+        return newArray
+    }
     
+   
+
         return (
         <div className='appcon'>
+            <h2>Applications</h2>
             <div className='searchcon'>
             <AppSearch/>
             <AppModal/>
+<<<<<<< HEAD
             </div>
+=======
+        </div>
+>>>>>>> master
            
             
             
@@ -38,4 +48,4 @@ const AppCon=(props)=>  {
     
 }
 
-export default connect(state=>({cardArray:state.cardArray}))(AppCon);
+export default connect(state=>({cardArray:state.cardObjects.data, input:state.searchTerm.input}))(AppCon);

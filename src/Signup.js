@@ -14,7 +14,7 @@ class Signup extends Component {
         return (
         <div >
         <h1 className='signtitle'>Sign Up</h1>
-        <SignCon/> 
+        <SignCon history={this.props.history}/> 
         </div>
       );
     }

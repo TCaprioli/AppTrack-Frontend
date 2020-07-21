@@ -1,68 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# APPTRACK
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+Apptrack is a job application tracker built with React, Redux, and Ruby on Rails. This application allows a user to upload PDF resumes, log job applications, and organize the applications with folders.
 
-### `yarn start`
+Click here for a [Recorded Demo](https://www.loom.com/share/7b6662d06a724eaba0fce829ad8d60e1)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Visuals
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**Home Screen**
+![home screen](https://github.com/TCaprioli/AppTrack-Frontend/blob/master/home%20screen.png?raw=true)
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Dashboard**
+![dashboard](https://github.com/TCaprioli/AppTrack-Frontend/blob/master/dashboard.png?raw=true)
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Applications**
+![applications1](https://github.com/TCaprioli/AppTrack-Frontend/blob/master/applications.png?raw=true)
+![applications2](https://github.com/TCaprioli/AppTrack-Frontend/blob/master/show%20application.png?raw=true)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Resumes**
+![resume1](https://github.com/TCaprioli/AppTrack-Frontend/blob/master/resumes.png?raw=true)
+![resume2](https://github.com/TCaprioli/AppTrack-Frontend/blob/master/show%20resume.png?raw=true)
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Folders**
+![folders](https://github.com/TCaprioli/AppTrack-Frontend/blob/master/folders.png?raw=true)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Roadmap
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+I would like to deploy this application but first I need to integrate AWS so that users can have their uploads persist via cloud storage.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Acknowledgments
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Special thanks to all of the libraries that made this possible
+* [React Items Carousel](https://github.com/bitriddler/react-items-carousel)
+* [React Bootstrap](https://github.com/react-bootstrap/react-bootstrap)
+* [React Icons](https://github.com/react-icons/react-icons)

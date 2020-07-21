@@ -1,46 +1,89 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Form, Button} from 'react-bootstrap'
-import loginFetch from '../actions/loginFetch'
+
+
+
 
 
 
 class LogCon extends React.Component {
     state={
-        email:"",
-        password:""
+        email:"".toLowerCase(),
+        password:"",
+        invalid:null,
       }
 
-    handleSubmit =async (event)=>{
+    //Fetch checks to see if user account exists
+    loginFetch= async ()=>{
+        let resp = await fetch('http://localhost:3000/login',{
+            method: 'POST',
+            headers:{'Content-Type': 'application/json'},
+            body: JSON.stringify(this.loginObject())
+        })
+        let data = await resp.json()
+        return data 
+    }
 
+    //Object being passed to fetch
+    loginObject=()=>({
+        email:this.state.email,
+        password:this.state.password
+    })
+
+    //Action being dispatched
+    loginUser=(userObj) =>({
+        type:'LOG_USER',
+        payload:userObj
+    })
+
+
+    handleSubmit = async (event)=>{
         event.preventDefault()
-        this.props.loginFetch(this.state)
+        let login = await this.loginFetch()
+        //login.message is true when the credientials are invalid
+        if(login.message){
+            console.log(login)
+            this.setState({
+                email:'',
+                password:'',
+                invalid:true
+            })
+        }
+        else{
+            localStorage.setItem("token", login.jwt)
+            this.props.dispatch(this.loginUser)
+            this.props.history.push('/')
+        }
+        
 
     }
 
     handleInput=(event)=>{
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
+            invalid:null
         })
     }
 
     render(){
-    let {email, password} = this.state
+    let {email, password,invalid} = this.state
         return (
         <div className='logcon'>
-           <Form onSubmit={this.handleSubmit}>
+           <Form validated={invalid} onSubmit={this.handleSubmit}>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" name="email" value={email}
+                    <Form.Control required type="email" name="email" value={email}
                      placeholder="Enter email" onChange={this.handleInput}/>
                     <Form.Text className="text-muted">
                     We'll never share your email with anyone else.
                     </Form.Text>
+                    <Form.Control.Feedback type='invalid'>Incorrect Username or Password</Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name="password"
+                    <Form.Control required type="password" name="password"
                     value={password} placeholder="Password" onChange={this.handleInput}/>
                 </Form.Group>
                 <Button variant="primary" type="submit">
@@ -53,4 +96,4 @@ class LogCon extends React.Component {
     }
 }
 
-export default connect(null,{loginFetch})(LogCon);
+export default connect()(LogCon);

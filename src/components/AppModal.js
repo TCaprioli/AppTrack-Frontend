@@ -14,11 +14,17 @@ class AppModal extends React.Component {
     payload=()=>({
       title:this.state.title,
       company:this.state.company,
-      description:this.state.description
+      description:this.state.description,
+      user_id:this.props.currentUser.user.id
     })
     handleSubmit=(event)=>{
       event.preventDefault()
       this.props.addFormInput(this.payload())
+      this.setState({
+        title:'',
+        company:'',
+        description:''
+      })
     }
 
     handleOnChange =(event)=>{
@@ -53,17 +59,17 @@ class AppModal extends React.Component {
             <Form onSubmit={this.handleSubmit}>
                 <Form.Group >
                     <Form.Label>Job Title</Form.Label>
-                    <Form.Control type="text" name="title" value={this.state.title} 
+                    <Form.Control required type="text" name="title" value={this.state.title} 
                     placeholder="Software Engineer" onChange={this.handleOnChange}/>
                 </Form.Group>
                 <Form.Group >
                     <Form.Label>Company</Form.Label>
-                    <Form.Control type="text" name="company" value={this.state.company} 
+                    <Form.Control required type="text" name="company" value={this.state.company} 
                     placeholder="Google" onChange={this.handleOnChange}/>
                 </Form.Group>
                 <Form.Group >
                     <Form.Label>Job Description</Form.Label>
-                    <Form.Control as="textarea" rows="3" name="description" value={this.state.description} onChange={this.handleOnChange}/>
+                    <Form.Control required as="textarea" rows="3" name="description" value={this.state.description} onChange={this.handleOnChange}/>
                 </Form.Group>
                   <Form.Group>
                     <Button type="submit" variant="primary" >
@@ -80,4 +86,8 @@ class AppModal extends React.Component {
     );
   }
 }
+<<<<<<< HEAD
  export default connect(null,{addFormInput})(AppModal);
+=======
+ export default connect(state=>({currentUser:state.loggedIn.currentUser}),{addFormInput})(AppModal);
+>>>>>>> master
