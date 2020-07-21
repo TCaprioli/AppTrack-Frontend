@@ -37,6 +37,19 @@ class LogCon extends React.Component {
         payload:userObj
     })
 
+    //guest obj for demo
+    guestObj=()=>({
+        email: "guest@guest.com",
+        password: "abc123"
+    })
+
+    loginGuest=()=>{
+        this.setState({
+            email: "guest@guest.com",
+            password: "abc123"
+        })
+    
+    }
 
     handleSubmit = async (event)=>{
         event.preventDefault()
@@ -88,6 +101,10 @@ class LogCon extends React.Component {
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Login
+                </Button>
+                 <span id='or'>or</span>
+                <Button variant="primary" onClick={()=> this.loginGuest()}>
+                    Demo
                 </Button>
              </Form>
         

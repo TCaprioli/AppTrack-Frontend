@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import updateApplication from '../actions/updateApplication'
 import {Form, Button} from 'react-bootstrap'
+import '../stylesheets/show.css'
 
 class ShowCon extends React.Component{
     state={
@@ -12,12 +13,7 @@ class ShowCon extends React.Component{
         company:this.props.showData.company,
         description:this.props.showData.description,
         applied:this.props.showData.applied,
-        //resumeArray displays user's resumes for form select
-        resumeArray:this.props.currentUser.resumes,
-        //resapp holds the selected resume id from the form
-        resapp:'',
-        //resappArray holds all of the resumes connected to this instance of the application
-        resappArray:[]
+        
     }
 
     async componentDidMount(){
@@ -66,58 +62,10 @@ class ShowCon extends React.Component{
         id:this.props.showData.id
     })
 
-    mapOptions=()=>{
-        let {resumeArray} = this.state
-        let updatedArray = resumeArray.map(resume => {
-        return  <option key={resume.id} value={resume.id}>{resume.name}</option>
-        })
-        return updatedArray
-    }
+   
 
-    addResapp=async ()=>{
-        let token = localStorage.token
-        let resp = await fetch('http://localhost:3000/resapps',{
-            method:'POST',
-            headers: {'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-              },
-            body: JSON.stringify({resume_id:Number(this.state.resapp), application_id:this.props.showData.id})
-        })
-        let data = await resp.json()
-        let newJoiner = data.resapp.resume
-        this.setState({
-            resappArray:[...this.state.resappArray, newJoiner]
-        })
-    }
 
-    mapResapps=()=>{
-        let {resappArray} = this.state
-        let updatedArray = resappArray.map(resapp =>{
-        return <div key={resapp.resume_id}>{resapp.resume_name} <button onClick={this.handleDelete} id={`${resapp.id}`} style={{borderRadius:'15px',outline:'none'}}>x</button></div>
-        })
-        return updatedArray
-    }
 
-    handleDelete=(event)=>{
-        let token = localStorage.token
-        let id= Number(event.target.id)
-        let updatedArray = this.state.resappArray.filter(resapp => resapp.id !== id)
-        console.log(updatedArray)
-        console.log(this.state.resappArray)
-        console.log(id)
-        this.setState({
-            resappArray:updatedArray
-        })
-        fetch(`http://localhost:3000/resapps/${id}`,{
-            method:'DELETE',
-            headers: {'Content-Type': 'application/json',
-            Accept: 'application/json',
-            'Authorization': `Bearer ${token}`
-              }
-            })
-       
-        
-    }
 
     handleOnSubmit=(event)=>{
         event.preventDefault()
@@ -152,11 +100,6 @@ class ShowCon extends React.Component{
                 <hr/>
                 <h6>Applied: {applied === null? appliedAt:applied}</h6>
                 <hr/>
-                <h5>Resume(s) used:</h5>
-                <span style={{marginTop:'25px', contentAlign:'center'}}>
-                {this.mapResapps()}
-                </span>
-                <hr/>
                 <Button onClick={this.handleOnClick}>Edit</Button>
                 </span>
                 :
@@ -168,12 +111,6 @@ class ShowCon extends React.Component{
                 name='description' onChange={this.handleOnChange}/>
                 <hr/>
                 Applied: <Form.Control type='date'placeholder={appliedAt} name='applied' onChange={this.handleOnChange}/>
-                <hr/>
-                Resume(s) used:
-                <Form.Control as='select' name='resapp' onChange={this.handleOnChange} onFocus={this.handleOnChange}>
-                <option value=''>Select Resume</option>
-                {this.mapOptions()}
-                </Form.Control>
                 <hr/>
                 <Button type='submit'>Submit</Button>
                 </Form>
