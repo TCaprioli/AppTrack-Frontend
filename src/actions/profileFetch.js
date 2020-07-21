@@ -2,7 +2,7 @@ export default () => {
   return async (dispatch) => {
     const token = localStorage.token;
     if (token) {
-      let resp = await fetch('http://apptracklite-api.herokuapp.com/profile', {
+      let resp = await fetch('https://apptracklite-api.herokuapp.com/profile', {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,

@@ -11,7 +11,7 @@ export default (payload) => {
     let token = localStorage.token;
     let base = await toBase64(payload.files);
 
-    let resp = await fetch('http://apptracklite-api.herokuapp.com/resumes', {
+    let resp = await fetch('https://apptracklite-api.herokuapp.com/resumes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -11,7 +11,7 @@ class LogCon extends React.Component {
 
   //Fetch checks to see if user account exists
   loginFetch = async () => {
-    let resp = await fetch('http://apptracklite-api.herokuapp.com/login', {
+    let resp = await fetch('https://apptracklite-api.herokuapp.com/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(this.loginObject()),

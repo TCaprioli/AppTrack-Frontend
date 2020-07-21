@@ -8,7 +8,7 @@ class CountCon extends React.Component {
 
   async componentDidMount() {
     let token = localStorage.token;
-    let resp = await fetch('http://apptracklite-api.herokuapp.com/appmonth', {
+    let resp = await fetch('https://apptracklite-api.herokuapp.com/appmonth', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

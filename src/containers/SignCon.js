@@ -12,7 +12,7 @@ class SignCon extends React.Component {
 
   //Fetch creates new user
   signUpFetch = async () => {
-    let resp = await fetch('http://apptracklite-api.herokuapp.com/signup', {
+    let resp = await fetch('https://apptracklite-api.herokuapp.com/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(this.signUpObject()),

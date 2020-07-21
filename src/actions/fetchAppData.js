@@ -1,7 +1,7 @@
 export default () => {
   return async (dispatch) => {
     let token = localStorage.token;
-    let resp = await fetch('http://apptracklite-api.herokuapp.com/profile', {
+    let resp = await fetch('https://apptracklite-api.herokuapp.com/profile', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
