@@ -14,7 +14,7 @@ class ResumeShow extends React.Component {
   async componentDidMount() {
     let { id } = this.props.showResume;
     let resp = await fetch(
-      `http://apptracklite-api.herokuapp.com/resumes/${id}`,
+      `https://apptracklite-api.herokuapp.com/resumes/${id}`,
       {
         method: 'GET',
         headers: {

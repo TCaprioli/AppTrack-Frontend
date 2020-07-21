@@ -4,7 +4,7 @@ export default (payload) => {
 
     let { name, id } = payload;
     let resp = await fetch(
-      `http://apptracklite-api.herokuapp.com/users/${id}`,
+      `https://apptracklite-api.herokuapp.com/users/${id}`,
       {
         method: 'PATCH',
         headers: {

@@ -20,7 +20,7 @@ class ShowCon extends React.Component {
       let id = this.props.showData.id;
       let token = localStorage.token;
       let resp = await fetch(
-        `http://apptracklite-api.herokuapp.com/applications/${id}`,
+        `https://apptracklite-api.herokuapp.com/applications/${id}`,
         {
           method: 'GET',
           headers: {

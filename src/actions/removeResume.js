@@ -1,7 +1,7 @@
 export default (id) => {
   return (dispatch) => {
     let token = localStorage.token;
-    fetch(`http://apptracklite-api.herokuapp.com/resumes/${id}`, {
+    fetch(`https://apptracklite-api.herokuapp.com/resumes/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
