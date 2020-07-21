@@ -19,7 +19,7 @@
     background-color: rgb(40, 203, 40);
     font-size: 24px;
     line-height: 25px;
-    width: 100vw;
+    width: inherit;
     height: 80px;
 }
 
@@ -39,12 +39,12 @@ a.active{
 }
 
 #nav-title{
-    /* margin: 19.5px 419px 19.5px 300px; */
     font-size: 42px;
 }
 
-/* .log-btn{
-    text-decoration: none;
-    position: fixed;
-    right: 20px;
-} */
+@media(max-width: 420px){
+    #nav-title{
+        font-size: 24px;
+    }
+    
+}

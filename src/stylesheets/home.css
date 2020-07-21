@@ -9,11 +9,12 @@
 
 
 
+
 .homecon{
     text-align: center;
     padding: 5px;
-    height:200px;
-    width:500px;
+    height:220px;
+    width:400px;
 }
 
 .mx-auto.homecon{
@@ -28,10 +29,17 @@
     
 }
 
-@media(max-width: 400px){
+@media(max-width: 420px){
     .mx-auto.homecon{
         width: 100vw;
         padding: 0px;
+    }
+}
+
+@media(max-height: 420px){
+    .mx-auto.homecon{
+        position: relative;
+        top: 100px;
     }
 }
 

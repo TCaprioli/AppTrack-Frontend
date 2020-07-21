@@ -15,7 +15,7 @@ class Home extends Component {
   render() {
     // console.log(!!this.props.loggedIn);
     return (
-      <>
+      <div id='home'>
         {this.props.loggedIn ? (
           <div className="dash-main">
             <DashCon />
@@ -52,7 +52,7 @@ class Home extends Component {
             <HomeCon />
           </div>
         )}
-      </>
+      </div>
     );
   }
 }
