@@ -13,13 +13,16 @@ class ResumeShow extends React.Component {
 
   async componentDidMount() {
     let { id } = this.props.showResume;
-    let resp = await fetch(`http://localhost:3000/resumes/${id}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-    });
+    let resp = await fetch(
+      `http://apptracklite-api.herokuapp.com/resumes/${id}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      }
+    );
     let data = await resp.blob();
     const fileURL = window.URL.createObjectURL(data);
     console.log(fileURL);

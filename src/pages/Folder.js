@@ -16,7 +16,7 @@ class Folder extends React.Component {
     this.props.fetchFolders();
     const token = localStorage.token;
     if (token) {
-      let resp = await fetch('http://localhost:3000/profile', {
+      let resp = await fetch('http://apptracklite-api.herokuapp.com/profile', {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
