@@ -13,54 +13,59 @@ import {
 
 const NavBar = (props) => {
   let handleOnClick = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     props.logoutUser();
     localStorage.removeItem('token');
   };
 
+  console.log(props)
   return (
     <div>
-      {console.log(props)}
       <Navbar className="navbar" fixed="top">
+        {props.currentUser.user? 
         <NavDropdown title="Menu" id="nav-dropdown">
-          <ListGroup variant="flush" style={{ textAlign: 'center' }}>
-            <NavLink
-              to="/applications"
-              exact
-              style={{ textDecoration: 'none' }}
-            >
-              <ListGroup.Item action variant="light" style={{ color: 'black' }}>
-                Applications
-              </ListGroup.Item>
-            </NavLink>
+        <ListGroup variant="flush" style={{ textAlign: 'center' }}>
+          <NavLink
+            to="/applications"
+            exact
+            style={{ textDecoration: 'none' }}
+          >
+            <ListGroup.Item action variant="light" style={{ color: 'black' }}>
+              Applications
+            </ListGroup.Item>
+          </NavLink>
 
-              <ListGroup.Item  disabled >
-                Folders
-              </ListGroup.Item>
-            
+            <ListGroup.Item  disabled >
+              Folders
+            </ListGroup.Item>
+          
 
-              <ListGroup.Item  disabled >
-                Resumes
-              </ListGroup.Item>
-          </ListGroup>
-        </NavDropdown>
+            <ListGroup.Item  disabled >
+              Resumes
+            </ListGroup.Item>
+        </ListGroup>
+      </NavDropdown>
+        :
+        null
+        }
+        
         <Container className="mx-auto">
-          <h1 style={{ color: 'white' }}>
-            <NavLink className="title" to="/" exact>
+            <NavLink id='nav-title' className="title" to="/" exact>
               AppTrack
             </NavLink>
-          </h1>
         </Container>
         {props.currentUser.user ? (
-          <Button variant="success" onClick={handleOnClick}>
-            <NavLink to="/" exact style={{ textDecoration: 'none' }}>
+          <NavLink className='log-btn' to="/" exact style={{ textDecoration: 'none' }}>
+            <Button variant="success" onClick={handleOnClick}>
               Logout
+          </Button>
             </NavLink>
-          </Button>
         ) : (
-          <Button variant="success" href="/login">
-            Login
+          <NavLink className='log-btn' to="/login" exact style={{ textDecoration: 'none' , position: 'fixed', right: 20}}>
+            <Button variant="success">
+              Login
           </Button>
+            </NavLink>
         )}
       </Navbar>
     </div>
