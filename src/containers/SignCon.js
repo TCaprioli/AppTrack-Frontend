@@ -38,7 +38,7 @@ class SignCon extends React.Component {
     let login = await this.signUpFetch();
     //login.error is true when the credientials are invalid
     if (login.error) {
-      console.log(login);
+      // console.log(login);
       this.setState({
         email: '',
         password: '',

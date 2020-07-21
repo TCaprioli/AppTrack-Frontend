@@ -15,7 +15,7 @@ export default (payload) => {
       }
     );
     let data = await resp.json();
-    console.log({ data });
+    // console.log({ data });
 
     dispatch(updateData(data.resume));
   };

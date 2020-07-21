@@ -24,7 +24,7 @@ class FiModal extends React.Component {
     }
 
     handleOnChange =(event)=>{
-        console.log(event.target.value)
+        // console.log(event.target.value)
       this.setState({
         application:event.target.value
       })
@@ -50,8 +50,8 @@ class FiModal extends React.Component {
     handleAppRemove=(event)=>{
       event.persist()
       let {folderData} = this.props
-      console.log(this.state.application, this.props.folderData.id )
-      console.log(this.props.folderData.folderItems)
+      // console.log(this.state.application, this.props.folderData.id )
+      // console.log(this.props.folderData.folderItems)
       let folderItem = folderData.folderItems.find(folderI =>{
         if(folderI.application.id === Number(this.state.application)){
           return folderI.id
@@ -59,7 +59,7 @@ class FiModal extends React.Component {
       })
       // console.log(folderItem.id)
       if(this.props.folderData.folderItems.length !== 0){
-        console.log(true)
+        // console.log(true)
         this.props.removeFolderItem(folderItem.id)
       }
       

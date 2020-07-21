@@ -22,12 +22,12 @@ class ResumeCard extends React.Component{
   }
 
    handleOnClick=()=>{
-    console.log(this.props.cardData)
+    // console.log(this.props.cardData)
     this.props.showResumeData(this.props.cardData)
   }
 
    handleUpdate=()=>{
-    console.log('update me')
+    // console.log('update me')
     this.state.clicked === false?
     this.setState({
       clicked:true
@@ -42,7 +42,7 @@ class ResumeCard extends React.Component{
     if(key === 'Enter'){
       event.preventDefault()
       this.props.updateResumeName(this.updateObj(target.value))
-      console.log(target.value)
+      // console.log(target.value)
       this.setState({
         clicked:false
       })
@@ -56,7 +56,7 @@ class ResumeCard extends React.Component{
   
   render(){
 
-  console.log(this.state)
+  // console.log(this.state)
         return (
             <Card>
             <Card.Body>

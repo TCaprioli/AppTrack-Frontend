@@ -18,7 +18,7 @@ const NavBar = (props) => {
     localStorage.removeItem('token');
   };
 
-  console.log(props)
+  // console.log(props)
   return (
     <div>
       <Navbar className="navbar" fixed="top">

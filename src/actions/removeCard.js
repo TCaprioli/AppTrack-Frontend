@@ -13,7 +13,7 @@ export default (id) => {
       }
     );
     let data = await resp.json();
-    console.log(data.applications);
+    // console.log(data.applications);
     dispatch(remove(id));
     dispatch(itemRemove(data.applications));
   };

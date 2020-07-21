@@ -24,7 +24,7 @@ class Folder extends React.Component {
       });
 
       let data = await resp.json();
-      console.log(data.user.user.applications);
+      // console.log(data.user.user.applications);
       this.setState({
         applications: data.user.user.applications,
       });

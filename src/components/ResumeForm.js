@@ -19,7 +19,7 @@ class ResumeForm extends React.Component {
         let id = this.props.id.user.id
         event.preventDefault()
         this.props.addResumeFile({id,files})
-        console.log(this.state)
+        // console.log(this.state)
         
         
     }

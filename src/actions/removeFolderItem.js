@@ -13,7 +13,7 @@ export default (id) => {
       }
     );
     let data = await resp.json();
-    console.log(data);
+    // console.log(data);
 
     dispatch(itemRemove(data.folder_items));
   };

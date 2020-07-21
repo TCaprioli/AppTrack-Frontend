@@ -13,7 +13,7 @@ class Home extends Component {
     this.props.profileFetch();
   }
   render() {
-    console.log(!!this.props.loggedIn);
+    // console.log(!!this.props.loggedIn);
     return (
       <>
         {this.props.loggedIn ? (

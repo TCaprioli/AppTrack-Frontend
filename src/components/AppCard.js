@@ -16,12 +16,12 @@ const AppCard=(props)=>  {
   const appliedAt = `${time.getFullYear()}-${month()}-${day()}`
 
   let handleDelete=()=>{
-    console.log(props.cardData)
+    // console.log(props.cardData)
     props.removeCard(props.cardData.id)
   }
 
   let handleOnClick=()=>{
-    console.log(props.cardData)
+    // console.log(props.cardData)
     props.showCardData(props.cardData)
   }
   

@@ -20,7 +20,7 @@ export default (payload) => {
       body: JSON.stringify({ user_id: payload.id, document: base }),
     });
     let data = await resp.json();
-    console.log(data);
+    // console.log(data);
 
     dispatch(addData(data));
   };

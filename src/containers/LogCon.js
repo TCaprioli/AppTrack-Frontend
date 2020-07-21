@@ -50,7 +50,7 @@ class LogCon extends React.Component {
     let login = await this.loginFetch();
     //login.message is true when the credientials are invalid
     if (login.message) {
-      console.log(login);
+      // console.log(login);
       this.setState({
         email: '',
         password: '',

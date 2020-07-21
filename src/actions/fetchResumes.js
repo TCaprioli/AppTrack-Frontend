@@ -9,7 +9,7 @@ export default () => {
       },
     });
     let data = await resp.json();
-    console.log(data.user.user.resumes);
+    // console.log(data.user.user.resumes);
     let userResumes = data.user.user.resumes;
     dispatch(getResume(userResumes));
 

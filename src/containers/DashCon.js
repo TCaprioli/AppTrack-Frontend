@@ -21,7 +21,7 @@ class DashCon extends React.Component{
             headers:{accept: 'application/json'}
         })
         let data = await resp.json()
-        console.log(data)
+        // console.log(data)
         
         this.setState({
             quote:data.contents.quotes[0].quote,
@@ -60,7 +60,7 @@ class DashCon extends React.Component{
     render(){
     let {user} = this.props
     let {clicked} = this.state
-    console.log(clicked)
+    // console.log(clicked)
         return (
         <div className="dashcon">
             {!clicked?

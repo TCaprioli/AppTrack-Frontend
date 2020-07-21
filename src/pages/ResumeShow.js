@@ -25,7 +25,7 @@ class ResumeShow extends React.Component {
     );
     let data = await resp.blob();
     const fileURL = window.URL.createObjectURL(data);
-    console.log(fileURL);
+    // console.log(fileURL);
     this.setState({
       fileURL,
     });

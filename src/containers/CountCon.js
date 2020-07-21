@@ -16,7 +16,7 @@ class CountCon extends React.Component {
       },
     });
     let data = await resp.json();
-    console.log(data.users);
+    // console.log(data.users);
     this.setState({
       applications: data.users,
     });
