@@ -67,9 +67,6 @@ class ShowCon extends React.Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     this.props.updateApplication(this.updateObj());
-    if (this.state.resapp !== '') {
-      this.addResapp();
-    }
     this.setState({
       clicked: false,
     });
@@ -106,13 +103,13 @@ class ShowCon extends React.Component {
           <Form onSubmit={this.handleOnSubmit}>
             Title:{' '}
             <Form.Control
-              placeholder={title}
+              value={this.state.title}
               name="title"
               onChange={this.handleOnChange}
             />
             Company:{' '}
             <Form.Control
-              placeholder={company}
+              value={this.state.company}
               name="company"
               onChange={this.handleOnChange}
             />
@@ -121,7 +118,7 @@ class ShowCon extends React.Component {
             <Form.Control
               as="textarea"
               rows="3"
-              placeholder={description}
+              value={this.state.description}
               name="description"
               onChange={this.handleOnChange}
             />
