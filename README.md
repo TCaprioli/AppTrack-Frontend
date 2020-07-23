@@ -4,6 +4,10 @@
 
 Apptrack is a job application tracker built with React, Redux, and Ruby on Rails. This application allows a user to upload PDF resumes, log job applications, and organize the applications with folders.
 
+**The Live demo only logs applications at this time. See recorded demo for full features**
+
+Click here for a [Live Demo](https://www.apptrack.netlify.app)
+
 Click here for a [Recorded Demo](https://www.loom.com/share/7b6662d06a724eaba0fce829ad8d60e1)
 
 ## Visuals
@@ -31,7 +35,7 @@ Click here for a [Recorded Demo](https://www.loom.com/share/7b6662d06a724eaba0fc
 
 ## Roadmap
 
-I would like to deploy this application but first I need to integrate AWS so that users can have their uploads persist via cloud storage.
+I would like to integrate AWS so that users can have their uploads persist via cloud storage. I would also like to refactor the folders carosel to be more mobile friendly.
 
 ## Acknowledgments
 
