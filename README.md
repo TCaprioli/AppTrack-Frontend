@@ -2,7 +2,7 @@
 
 ## Description
 
-Apptrack is a job application tracker built with React, Redux, and Ruby on Rails. This application allows a user to upload PDF resumes, log job applications, and organize the applications with folders.
+Apptrack is a job application tracker built with React and Redux. This application allows a user to upload PDF resumes, log job applications, and organize the applications with folders.
 
 **The Live demo only logs applications at this time. See recorded demo for full features**
 
